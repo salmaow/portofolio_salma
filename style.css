@@ -1,0 +1,459 @@
+/* =========================================
+   VARIABEL & RESET
+   ========================================= */
+   :root {
+    --bg-dark: #002b4d;       /* Biru Navy Gelap */
+    --bg-light: #003b73;      /* Biru sedikit lebih terang untuk card */
+    --accent-yellow: #fca311; /* Kuning/Orange */
+    --text-light: #ffffff;
+    --text-muted: #a0c4e4;
+    --card-bg: #7a6a35;       /* Coklat Gold untuk card tentang */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-yellow);
+}
+
+.hamburger {
+    display: none; /* Disembunyikan di desktop */
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-yellow);
+    border-bottom: 3px solid var(--accent-yellow);
+}
+
+/* =========================================
+   LAYOUT UMUM
+   ========================================= */
+.page {
+    display: none;
+    padding: 60px 20px;
+    min-height: 80vh;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.page.active {
+    display: block;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   BERANDA
+   ========================================= */
+.home-layout {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.home-text {
+    flex: 1;
+}
+
+.home-text h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.home-text h3 {
+    color: var(--accent-yellow);
+    margin-bottom: 15px;
+}
+
+.home-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.home-text h4 {
+    margin-bottom: 20px;
+}
+
+.home-image {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    border: 3px solid var(--accent-yellow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    background-color: var(--accent-yellow);
+    color: var(--bg-dark);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #e5940e;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--accent-yellow);
+    border: 2px solid var(--accent-yellow);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-yellow);
+    color: var(--bg-dark);
+}
+
+/* =========================================
+   TENTANG SAYA
+   ========================================= */
+.about-layout {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 6;
+    font-size: 18px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.card-box {
+    flex: 4;
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent-yellow);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.card-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-circle {
+    background-color: var(--bg-dark);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: var(--accent-yellow);
+    flex-shrink: 0;
+}
+
+.card-text h4 {
+    color: var(--accent-yellow);
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.card-text p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* =========================================
+   PENGALAMAN
+   ========================================= */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.experience-card {
+    background-color: var(--bg-light);
+    border-left: 5px solid var(--accent-yellow);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+}
+
+.experience-header h4 {
+    font-size: 22px;
+    color: var(--accent-yellow);
+}
+
+.experience-header h5 {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.experience-body ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.experience-body li {
+    margin-bottom: 8px;
+}
+
+.experience-body .desc {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 14px;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* =========================================
+   SKILL
+   ========================================= */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.skill-card {
+    background-color: var(--bg-light);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(252, 163, 17, 0.3);
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-yellow);
+}
+
+.skill-card i {
+    font-size: 40px;
+    color: var(--accent-yellow);
+    margin-bottom: 15px;
+}
+
+.skill-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* =========================================
+   KONTAK
+   ========================================= */
+.contact-layout {
+    display: flex;
+    gap: 40px;
+}
+
+.contact-form-box, .contact-info-box {
+    flex: 1;
+    background-color: var(--bg-light);
+    border: 1px solid rgba(252, 163, 17, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.contact-form-box h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form input, 
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffffff;
+    color: #333;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+#contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+#contact-form button {
+    width: 100%;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.contact-item a, .contact-item span {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.contact-item a:hover {
+    color: var(--accent-yellow);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   RESPONSIF (MOBILE & TABLET)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: block; /* Munculkan tombol hamburger */
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-dark);
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 2px solid var(--accent-yellow);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .home-layout, .about-layout, .contact-layout {
+        flex-direction: column;
+    }
+
+    .home-text h1 {
+        font-size: 36px;
+    }
+
+    .profile-img {
+        margin-top: 30px;
+    }
+}
